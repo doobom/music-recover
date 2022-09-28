@@ -164,7 +164,7 @@ def main(path=''):
         else:  # mac or linux
             path = pre + '/Library/Containers/com.netease.163music/Data/Caches/online_play_cache'
             if not os.path.isdir(path): # android
-                path = pre + '/storage/self/primary/netease/cloudmusic/Cache/Music1'
+                path = pre + '/sdcard/netease/cloudmusic/Cache/Music1'
     if os.path.isdir(path):
         netease_music(path).getMusic()
     else:
