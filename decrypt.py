@@ -56,10 +56,13 @@ class netease_music:
         '''get the name of music from info dict'''
         title = dic['title'][0]
         artist = dic['artist'][0]
-        name = title + '(' + artist+')'
+        title = re.sub('\s', '_', title)
+        artist = re.sub('\s', '_', artist)
+        '''name = title + '(' + artist+')' '''
+        name = artist + ' - ' + title
         for i in '>?*/\:"|<':
             name = name.replace(i, '-')  # convert to valid chars for file name
-        name = re.sub('\s', '_', name)
+        '''name = re.sub('\s', '_', name)'''
         self.id_name[musicId] = name
         return os.path.join(MSCDIR, name + '.mp3')
 
